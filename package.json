@@ -6,7 +6,7 @@
   "author": "pashebor",
   "license": "MIT",
   "scripts": {
-    "run:dev": "cross-env NODE_ENV=development webpack",
+    "run:dev": "cross-env NODE_ENV=development webpack-dev-server",
     "run:prod": "cross-env NODE_ENV=production webpack"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.5",
     "babel-preset-es2015": "^6.24.1",
+    "copy-webpack-plugin": "^5.1.1",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "file-loader": "^5.0.2",
@@ -25,6 +26,7 @@
     "normalize-scss": "^7.0.1",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "pixi.js": "^5.2.0",
+    "pixi.js-legacy": "^5.2.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "uglifyjs-webpack-plugin": "^2.1.2",

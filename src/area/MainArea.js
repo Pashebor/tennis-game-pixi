@@ -1,14 +1,17 @@
-import * as PIXI from  'pixi.js';
+import * as PIXI from 'pixi.js-legacy';
 
-import Player from '../elements/Player'; 
+import Player from '../elements/Player';
+import Ball from '../elements/Ball';
+
+import { DEFAULT_POSITION } from '../elements/Player';
 
 const DEFAULT_COLOR = '#FFA000';
 
-class MainArea{
+class MainArea {
     constructor(
-        width = window.innerWidth,
-        height = window.innerHeight,
-        bgColor = DEFAULT_COLOR
+      width = window.innerWidth,
+      height = window.innerHeight,
+      bgColor = DEFAULT_COLOR
     ) {
         this.width = width;
         this.height = height;
@@ -16,27 +19,34 @@ class MainArea{
     }
 
     drawArea() {
-        const app = new PIXI.Application(
-            { 
-                width: this.width,
-                height: this.height,
-                antialias: true,
-                transparent: false,
-                resolution: 1
-            }
+
+        const canvas = document.getElementById('tinis'),
+          app = new PIXI.Application(
+          {
+              view: canvas,
+              width: this.width,
+              height: this.height,
+              antialias: true,
+              forceCanvas: true,
+              transparent: false,
+              resolution: 1
+          }
         );
-        
-        const playerOne = new Player(),
-            playerTwo = new Player('0xEC407A', { x: app.renderer.screen.width - 36, y: 32 });    
-            
+
+        const playerOne = new Player(app),
+          playerTwo = new Player(
+            app,
+            '0xEC407A',
+            { x: app.renderer.screen.width - DEFAULT_POSITION, y: DEFAULT_POSITION },
+            true),
+          ball = new Ball(app);
+
         app.stage.addChild(playerOne);
         app.stage.addChild(playerTwo);
-        
-        document.body.appendChild(app.view);    
-    }
+        app.stage.addChild(ball);
 
-    init() {
-        
+
+        document.body.appendChild(app.view);
     }
 }
 
