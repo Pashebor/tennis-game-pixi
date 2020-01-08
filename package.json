@@ -1,8 +1,8 @@
 {
-  "name": "django_site_with_blog_template",
+  "name": "a-pixi-tennis-game",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:Pashebor/django_site_with_blog_template.git",
+  "repository": "https://github.com/Pashebor/tennis-game-pixi",
   "author": "pashebor",
   "license": "MIT",
   "scripts": {
@@ -31,6 +31,7 @@
     "webpack": "^4.29.6"
   },
   "devDependencies": {
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.10.1"
   }
 }
